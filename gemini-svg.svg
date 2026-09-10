@@ -1,0 +1,241 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="1200"
+    height="630"
+    viewBox="0 0 1200 630"
+    role="img"
+    aria-labelledby="title desc"
+    version="1.1">
+
+    <title id="title">CryptoSec Lab — Cryptography &amp; Information Security Lab</title>
+    <desc id="desc">A geometric SVG logo featuring a padlock-key-cipher-wheel compound icon on a dark slate background, representing six classical ciphers and their interactive educational platform.</desc>
+
+    <defs>
+        <style>
+            .font-sans { font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+            .font-mono { font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; }
+        </style>
+
+        <!-- Gradients -->
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0f172a"/>
+            <stop offset="100%" stop-color="#0b0f19"/>
+        </linearGradient>
+
+        <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#3b82f6"/>
+            <stop offset="100%" stop-color="#2563eb"/>
+        </linearGradient>
+
+        <linearGradient id="emeraldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#10b981"/>
+            <stop offset="100%" stop-color="#059669"/>
+        </linearGradient>
+
+        <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+        </radialGradient>
+
+        <!-- Background Dot Pattern -->
+        <pattern id="bgGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1" fill="#334155" opacity="0.3"/>
+        </pattern>
+    </defs>
+
+    <!-- Canvas Background -->
+    <g id="background">
+        <rect width="1200" height="630" fill="url(#bgGradient)"/>
+        <rect width="1200" height="630" fill="url(#bgGrid)"/>
+        <!-- Central Glow Background for Left Icon Zone -->
+        <circle cx="200" cy="315" r="280" fill="url(#centerGlow)"/>
+    </g>
+
+    <!-- Central Icon Cryptographic Symbol -->
+    <g id="cipher-icon" transform="translate(200, 315)">
+        
+        <!-- Outer Orbit Data Connectors -->
+        <g id="orbit-connectors">
+            <line x1="0" y1="0" x2="-160" y2="-120" stroke="#06b6d4" stroke-width="1.5" opacity="0.45"/>
+            <line x1="0" y1="0" x2="170" y2="-90" stroke="#06b6d4" stroke-width="1.5" opacity="0.45"/>
+            <line x1="0" y1="0" x2="180" y2="110" stroke="#06b6d4" stroke-width="1.5" opacity="0.45"/>
+            <line x1="0" y1="0" x2="-140" y2="160" stroke="#06b6d4" stroke-width="1.5" opacity="0.45"/>
+            <line x1="0" y1="0" x2="0" y2="-190" stroke="#06b6d4" stroke-width="1.5" opacity="0.45"/>
+            <line x1="0" y1="0" x2="-190" y2="0" stroke="#06b6d4" stroke-width="1.5" opacity="0.45"/>
+
+            <circle cx="-160" cy="-120" r="3" fill="#06b6d4"/>
+            <circle cx="170" cy="-90" r="3" fill="#06b6d4"/>
+            <circle cx="180" cy="110" r="3" fill="#06b6d4"/>
+            <circle cx="-140" cy="160" r="3" fill="#06b6d4"/>
+            <circle cx="0" cy="-190" r="3" fill="#06b6d4"/>
+            <circle cx="-190" cy="0" r="3" fill="#06b6d4"/>
+        </g>
+
+        <!-- Outer Alphabet Ring (Caesar Wheel) -->
+        <g id="alphabet-ring">
+            <circle cx="0" cy="0" r="150" fill="none" stroke="#10b981" stroke-width="2" opacity="0.35"/>
+            <circle cx="0" cy="0" r="134" fill="none" stroke="#10b981" stroke-width="1" opacity="0.25" stroke-dasharray="4 4"/>
+            
+            <!-- Ring Letter Markers (Sample modular rotation points) -->
+            <g class="font-mono" font-size="9" font-weight="700" fill="#94a3b8" text-anchor="middle" opacity="0.6">
+                <text x="0" y="-138">A</text>
+                <text x="36" y="-133">B</text>
+                <text x="70" y="-120">C</text>
+                <text x="100" y="-98">D</text>
+                <text x="122" y="-70">E</text>
+                <text x="135" y="-36">F</text>
+                <text x="138" y="3">G</text>
+                <text x="130" y="42">H</text>
+                <text x="-36" y="144">N</text>
+                <text x="-70" y="130">O</text>
+                <text x="-100" y="108">P</text>
+                <text x="-122" y="80">Q</text>
+                <text x="-138" y="5">U</text>
+                <text x="-132" y="-36">V</text>
+                <text x="-118" y="-70">W</text>
+                <text x="-95" y="-98">X</text>
+            </g>
+        </g>
+
+        <!-- Playfair Matrix Grid Overlay (Lower-Left Quadrant) -->
+        <g id="playfair-matrix" transform="translate(-175, 15)">
+            <rect x="0" y="0" width="110" height="110" rx="6" fill="#0b0f19" stroke="#06b6d4" stroke-width="1.5" opacity="0.9"/>
+            <!-- Grid Lines -->
+            <path d="M 22 0 V 110 M 44 0 V 110 M 66 0 V 110 M 88 0 V 110" stroke="#06b6d4" stroke-width="1" opacity="0.3"/>
+            <path d="M 0 22 H 110 M 0 44 H 110 M 0 66 H 110 M 0 88 H 110" stroke="#06b6d4" stroke-width="1" opacity="0.3"/>
+            <!-- Monarchy Key Characters -->
+            <g class="font-mono" font-size="9" font-weight="700" fill="#10b981" text-anchor="middle">
+                <text x="11" y="15">M</text>
+                <text x="33" y="15">O</text>
+                <text x="55" y="15">N</text>
+                <text x="77" y="15">A</text>
+                <text x="99" y="15">R</text>
+                <text x="11" y="37">C</text>
+                <text x="33" y="37">H</text>
+                <text x="55" y="37">Y</text>
+                <text x="77" y="37" fill="#64748b">B</text>
+                <text x="99" y="37" fill="#64748b">D</text>
+            </g>
+        </g>
+
+        <!-- Padlock & Key Assembly (Central Shield) -->
+        <g id="padlock-assembly">
+            <!-- Shackle -->
+            <path d="M -45 10 L -45 -35 A 45 45 0 0 1 45 -35 L 45 10" fill="none" stroke="url(#blueGlow)" stroke-width="12" stroke-linecap="round"/>
+            <path d="M -45 10 L -45 -35 A 45 45 0 0 1 45 -35 L 45 10" fill="none" stroke="#0f172a" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+
+            <!-- Lock Body -->
+            <rect x="-65" y="-5" width="130" height="100" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+            <rect x="-55" y="5" width="110" height="80" rx="8" fill="#0b0f19" stroke="url(#blueGlow)" stroke-width="2"/>
+
+            <!-- Key Blade Overlay Inside Lock -->
+            <line x1="-30" y1="65" x2="35" y2="20" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
+            <rect x="18" y="22" width="12" height="6" rx="2" transform="rotate(-35 18 22)" fill="#3b82f6"/>
+            <rect x="30" y="30" width="12" height="6" rx="2" transform="rotate(-35 30 30)" fill="#3b82f6"/>
+
+            <!-- Lock Keyhole / Pivot -->
+            <circle cx="0" cy="40" r="10" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+            <polygon points="0,36 -5,52 5,52" fill="#3b82f6"/>
+            <circle cx="0" cy="40" r="4" fill="#f59e0b" stroke="#1e293b" stroke-width="1.5"/>
+        </g>
+
+        <!-- Shift Arrow (Emerald, Top Anchor) -->
+        <g id="shift-arrow" transform="translate(0, -150)">
+            <path d="M -20 0 A 150 150 0 0 1 20 -4 L 12 -12 M 20 -4 L 10 8" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="0" cy="0" r="3" fill="#10b981"/>
+        </g>
+
+        <!-- Rotation Index Marker (Amber, Upper Right) -->
+        <g id="rotation-marker" transform="translate(110, -110)">
+            <circle cx="0" cy="0" r="12" fill="#f59e0b" stroke="#1e293b" stroke-width="2.5"/>
+            <text class="font-mono" x="0" y="4" font-size="10" font-weight="800" fill="#0f172a" text-anchor="middle">3</text>
+        </g>
+
+        <!-- Central Node Pivot -->
+        <circle cx="0" cy="0" r="4" fill="#3b82f6" stroke="#1e293b" stroke-width="2"/>
+    </g>
+
+    <!-- Right Column: Branding Text Block -->
+    <g id="branding" transform="translate(700, 315)">
+        
+        <!-- Main Title -->
+        <text class="font-sans" x="0" y="-80" font-size="56" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="-0.02em">
+            CryptoSec Lab
+        </text>
+
+        <!-- Subtitle -->
+        <text class="font-sans" x="0" y="-45" font-size="21" font-weight="400" fill="#94a3b8" text-anchor="middle" letter-spacing="0.01em">
+            Cryptography &amp; Information Security Lab
+        </text>
+
+        <!-- Badge Line -->
+        <g id="badge" transform="translate(0, -10)">
+            <!-- Pill background -->
+            <rect x="-175" y="-14" width="90" height="24" rx="12" fill="#3b82f6"/>
+            <text class="font-sans" x="-130" y="2" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="0.05em">
+                6 CIPHERS
+            </text>
+            <!-- Muted Tag -->
+            <text class="font-mono" x="-70" y="2" font-size="13" font-weight="500" fill="#94a3b8" text-anchor="start">
+                interactive | educational
+            </text>
+        </g>
+
+        <!-- Feature Bullets Block -->
+        <g id="feature-bullets" transform="translate(-180, 45)">
+            <!-- Bullet 1 -->
+            <g transform="translate(0, 0)">
+                <circle cx="0" cy="0" r="5" fill="#10b981"/>
+                <text class="font-sans" x="16" y="5" font-size="15" font-weight="500" fill="#94a3b8">
+                    Caesar, Vigenère, Playfair, Hill, Atbash, Rail Fence
+                </text>
+            </g>
+
+            <!-- Bullet 2 -->
+            <g transform="translate(0, 30)">
+                <circle cx="0" cy="0" r="5" fill="#06b6d4"/>
+                <text class="font-sans" x="16" y="5" font-size="15" font-weight="500" fill="#94a3b8">
+                    Step-by-step visual cipher transformation
+                </text>
+            </g>
+
+            <!-- Bullet 3 -->
+            <g transform="translate(0, 60)">
+                <circle cx="0" cy="0" r="5" fill="#3b82f6"/>
+                <text class="font-sans" x="16" y="5" font-size="15" font-weight="500" fill="#94a3b8">
+                    Interactive learning hub &amp; assessments
+                </text>
+            </g>
+        </g>
+
+        <!-- Dashed Divider -->
+        <line x1="-120" y1="165" x2="120" y2="165" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+        <!-- Footer Tagline -->
+        <text class="font-mono" x="0" y="198" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle" letter-spacing="0.05em">
+            Educational Security Platform • Open Source
+        </text>
+
+    </g>
+
+    <!-- Corner Accents -->
+    <g id="corner-accent" stroke="#3b82f6" stroke-width="1.5" opacity="0.25" stroke-linecap="round">
+        <!-- Top-Left -->
+        <path d="M 24 44 V 24 H 44"/>
+        <path d="M 24 54 V 24 H 54" stroke-dasharray="2 4"/>
+        
+        <!-- Top-Right -->
+        <path d="M 1176 44 V 24 H 1156"/>
+        <path d="M 1176 54 V 24 H 1146" stroke-dasharray="2 4"/>
+
+        <!-- Bottom-Left -->
+        <path d="M 24 586 V 606 H 44"/>
+        <path d="M 24 576 V 606 H 54" stroke-dasharray="2 4"/>
+
+        <!-- Bottom-Right -->
+        <path d="M 1176 586 V 606 H 1156"/>
+        <path d="M 1176 576 V 606 H 1146" stroke-dasharray="2 4"/>
+    </g>
+
+</svg>

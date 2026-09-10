@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cryptography & Information Security Lab</title>
+    <meta name="description" content="Professional Cryptography and Information Security Learning Platform featuring 6 classical ciphers, multi-chapter learning modules, assessments, and visualizers." />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#dashboard" class="brand-logo" onclick="app.navigateTo('dashboard')">
+                <div class="brand-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <span>CryptoSec Lab</span>
+            </a>
+
+            <div class="nav-controls">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a class="nav-link active" data-screen="dashboard">Dashboard</a></li>
+                    
+                    <li class="nav-item-dropdown">
+                        <a class="nav-link" data-screen="technique">Techniques ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" onclick="app.navigateTo('technique', 'caesar')">Caesar Cipher</a></li>
+                            <li><a class="dropdown-item" onclick="app.navigateTo('technique', 'vigenere')">Vigenère Cipher</a></li>
+                            <li><a class="dropdown-item" onclick="app.navigateTo('technique', 'playfair')">Playfair Cipher</a></li>
+                            <li><a class="dropdown-item" onclick="app.navigateTo('technique', 'hill')">Hill Cipher (2x2)</a></li>
+                            <li><a class="dropdown-item" onclick="app.navigateTo('technique', 'atbash')">Atbash Cipher</a></li>
+                            <li><a class="dropdown-item" onclick="app.navigateTo('technique', 'railfence')">Rail Fence Cipher</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="nav-link" data-screen="learning">Learning Hub</a></li>
+                    <li><a class="nav-link" data-screen="assessments">Assessments</a></li>
+                    <li><a class="nav-link" data-screen="comparison">Compare</a></li>
+                </ul>
+
+                <!-- Light / Dark Mode Toggle Button -->
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <span id="theme-toggle-icon">☀️</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Screens Container -->
+    <main class="container">
+
+        <!-- ===================================================================
+             SCREEN 1: Dashboard / Home (#screen-dashboard)
+             =================================================================== -->
+        <div id="screen-dashboard" class="view-screen active">
+            <div class="hero-banner">
+                <div class="hero-content">
+                    <span class="hero-tag">Educational Security Platform</span>
+                    <h1 class="hero-title">Cryptography & Information Security Lab</h1>
+                    <p class="hero-desc">
+                        An interactive learning platform designed to study classical ciphers, visualize step-by-step cryptographic transformations, explore core InfoSec principles, and complete self-assessments.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="app.navigateTo('technique', 'caesar')">
+                            Explore Cipher Techniques
+                        </button>
+                        <button class="btn btn-secondary" onclick="app.navigateTo('learning')">
+                            Open Learning Hub
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Summary Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🔑</div>
+                    <div>
+                        <div class="stat-val">6</div>
+                        <div class="stat-lbl">Classical Ciphers</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📖</div>
+                    <div>
+                        <div class="stat-val">8</div>
+                        <div class="stat-lbl">Learning Chapters</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div>
+                        <div class="stat-val">Practice</div>
+                        <div class="stat-lbl">Interactive Assessments</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cipher Technique Cards -->
+            <div class="page-header">
+                <h2 class="page-title">Cipher Techniques</h2>
+                <p class="page-subtitle">Select any technique to open its dedicated workspace or chapter lesson.</p>
+            </div>
+
+            <div class="technique-grid">
+                <!-- Caesar Card -->
+                <div class="card technique-card">
+                    <div>
+                        <div class="technique-card-head">
+                            <div class="technique-icon">🔑</div>
+                            <span class="badge badge-easy">Beginner</span>
+                        </div>
+                        <h3 class="technique-name">Caesar Cipher</h3>
+                        <p class="technique-desc">Monoalphabetic substitution shifting letters by a fixed shift value modulo 26.</p>
+                    </div>
+                    <div>
+                        <div class="technique-meta">
+                            <span>Type: Substitution</span>
+                            <span style="color:var(--accent-red); font-weight:600;">Weak Security</span>
+                        </div>
+                        <div class="technique-actions">
+                            <button class="btn btn-primary" onclick="app.navigateTo('technique', 'caesar')">Launch Workspace</button>
+                            <button class="btn btn-secondary" onclick="app.navigateTo('learning', 'ch-1')">Read Lesson</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vigenere Card -->
+                <div class="card technique-card">
+                    <div>
+                        <div class="technique-card-head">
+                            <div class="technique-icon">🧩</div>
+                            <span class="badge badge-medium">Intermediate</span>
+                        </div>
+                        <h3 class="technique-name">Vigenère Cipher</h3>
+                        <p class="technique-desc">Polyalphabetic substitution using a repeated secret keyword for character shifts.</p>
+                    </div>
+                    <div>
+                        <div class="technique-meta">
+                            <span>Type: Polyalphabetic</span>
+                            <span style="color:var(--accent-amber); font-weight:600;">Weak Security</span>
+                        </div>
+                        <div class="technique-actions">
+                            <button class="btn btn-primary" onclick="app.navigateTo('technique', 'vigenere')">Launch Workspace</button>
+                            <button class="btn btn-secondary" onclick="app.navigateTo('learning', 'ch-2')">Read Lesson</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Playfair Card -->
+                <div class="card technique-card">
+                    <div>
+                        <div class="technique-card-head">
+                            <div class="technique-icon">▦</div>
+                            <span class="badge badge-medium">Intermediate</span>
+                        </div>
+                        <h3 class="technique-name">Playfair Cipher</h3>
+                        <p class="technique-desc">Digraph substitution cipher operating on pairs of letters using a generated 5×5 key matrix grid.</p>
+                    </div>
+                    <div>
+                        <div class="technique-meta">
+                            <span>Type: Digraph Grid</span>
+                            <span style="color:var(--accent-amber); font-weight:600;">Moderate</span>
+                        </div>
+                        <div class="technique-actions">
+                            <button class="btn btn-primary" onclick="app.navigateTo('technique', 'playfair')">Launch Workspace</button>
+                            <button class="btn btn-secondary" onclick="app.navigateTo('learning', 'ch-3')">Read Lesson</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hill Card -->
+                <div class="card technique-card">
+                    <div>
+                        <div class="technique-card-head">
+                            <div class="technique-icon">📐</div>
+                            <span class="badge badge-hard">Advanced</span>
+                        </div>
+                        <h3 class="technique-name">Hill Cipher (2x2)</h3>
+                        <p class="technique-desc">Polygraphic cipher using 2×2 matrix multiplication modulo 26 and linear algebra inverses.</p>
+                    </div>
+                    <div>
+                        <div class="technique-meta">
+                            <span>Type: Matrix Math</span>
+                            <span style="color:var(--accent-amber); font-weight:600;">Moderate</span>
+                        </div>
+                        <div class="technique-actions">
+                            <button class="btn btn-primary" onclick="app.navigateTo('technique', 'hill')">Launch Workspace</button>
+                            <button class="btn btn-secondary" onclick="app.navigateTo('learning', 'ch-4')">Read Lesson</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atbash Card -->
+                <div class="card technique-card">
+                    <div>
+                        <div class="technique-card-head">
+                            <div class="technique-icon">⇄</div>
+                            <span class="badge badge-easy">Beginner</span>
+                        </div>
+                        <h3 class="technique-name">Atbash Cipher</h3>
+                        <p class="technique-desc">Keyless symmetric monoalphabetic substitution mapping alphabet letters in reverse (A ↔ Z).</p>
+                    </div>
+                    <div>
+                        <div class="technique-meta">
+                            <span>Type: Reverse Mapping</span>
+                            <span style="color:var(--accent-red); font-weight:600;">Weak Security</span>
+                        </div>
+                        <div class="technique-actions">
+                            <button class="btn btn-primary" onclick="app.navigateTo('technique', 'atbash')">Launch Workspace</button>
+                            <button class="btn btn-secondary" onclick="app.navigateTo('learning', 'ch-5')">Read Lesson</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rail Fence Card -->
+                <div class="card technique-card">
+                    <div>
+                        <div class="technique-card-head">
+                            <div class="technique-icon">〰️</div>
+                            <span class="badge badge-easy">Beginner</span>
+                        </div>
+                        <h3 class="technique-name">Rail Fence Cipher</h3>
+                        <p class="technique-desc">Transposition cipher writing text in a zigzag pattern across multiple horizontal depth rails.</p>
+                    </div>
+                    <div>
+                        <div class="technique-meta">
+                            <span>Type: Transposition</span>
+                            <span style="color:var(--accent-red); font-weight:600;">Weak Security</span>
+                        </div>
+                        <div class="technique-actions">
+                            <button class="btn btn-primary" onclick="app.navigateTo('technique', 'railfence')">Launch Workspace</button>
+                            <button class="btn btn-secondary" onclick="app.navigateTo('learning', 'ch-6')">Read Lesson</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SCREEN 2: Dedicated Technique Workspace (#screen-technique)
+             =================================================================== -->
+        <div id="screen-technique" class="view-screen">
+            <!-- Technique Sub-Navigation -->
+            <div class="technique-subnav">
+                <button class="tech-subnav-btn active" onclick="app.switchTechnique('caesar')">Caesar</button>
+                <button class="tech-subnav-btn" onclick="app.switchTechnique('vigenere')">Vigenère</button>
+                <button class="tech-subnav-btn" onclick="app.switchTechnique('playfair')">Playfair</button>
+                <button class="tech-subnav-btn" onclick="app.switchTechnique('hill')">Hill (2x2)</button>
+                <button class="tech-subnav-btn" onclick="app.switchTechnique('atbash')">Atbash</button>
+                <button class="tech-subnav-btn" onclick="app.switchTechnique('railfence')">Rail Fence</button>
+            </div>
+
+            <!-- Dynamic Technique Header -->
+            <div class="technique-header-card">
+                <div>
+                    <div class="technique-title-group">
+                        <span id="tech-header-icon" style="font-size:1.75rem;">🔑</span>
+                        <h2 id="tech-header-title">Caesar Cipher Workspace</h2>
+                    </div>
+                    <p id="tech-header-desc" style="color:var(--text-muted); font-size:0.95rem; margin-top:0.35rem;">
+                        Monoalphabetic substitution shifting letters by a fixed shift value.
+                    </p>
+                </div>
+                <div style="display:flex; gap:0.5rem; align-items:center;">
+                    <span id="tech-header-difficulty" class="badge badge-easy">Beginner</span>
+                    <button class="btn btn-secondary" onclick="app.navigateTo('learning')">View Lesson</button>
+                </div>
+            </div>
+
+            <!-- Workspace Card -->
+            <div class="workspace-card">
+                <div class="workspace-top-bar">
+                    <h3 style="font-size:1.1rem; font-weight:700; color:var(--text-primary);">Interactive Playground</h3>
+                    <div class="mode-switch">
+                        <button id="mode-encrypt" class="mode-btn active">Encrypt</button>
+                        <button id="mode-decrypt" class="mode-btn">Decrypt</button>
+                    </div>
+                </div>
+
+                <!-- Dynamic Controls Box -->
+                <div class="controls-config-box">
+                    <!-- Caesar Controls -->
+                    <div id="tech-ctrl-caesar" class="tech-ctrl-panel">
+                        <div class="control-row">
+                            <div class="input-field-group">
+                                <label class="input-label" for="caesar-shift">Shift Value</label>
+                                <input type="number" id="caesar-shift" class="input-control" value="3" min="1" max="100" />
+                            </div>
+                            <div class="input-field-group">
+                                <label class="input-label" for="caesar-mod">Modulo</label>
+                                <input type="number" id="caesar-mod" class="input-control" value="26" min="2" max="100" />
+                            </div>
+                            <div class="input-field-group">
+                                <label class="input-label" for="caesar-case">Letter Case</label>
+                                <select id="caesar-case" class="input-control">
+                                    <option value="maintain">Maintain Case</option>
+                                    <option value="upper">Force UPPERCASE</option>
+                                    <option value="lower">Force lowercase</option>
+                                </select>
+                            </div>
+                            <div class="input-field-group">
+                                <label class="input-label" for="caesar-foreign">Foreign Chars</label>
+                                <select id="caesar-foreign" class="input-control">
+                                    <option value="ignore">Preserve / Ignore</option>
+                                    <option value="remove">Remove Symbols</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vigenere Controls -->
+                    <div id="tech-ctrl-vigenere" class="tech-ctrl-panel" style="display:none;">
+                        <div class="control-row">
+                            <div class="input-field-group" style="flex:2;">
+                                <label class="input-label" for="vigenere-key">Keyword / Secret Key</label>
+                                <input type="text" id="vigenere-key" class="input-control" value="LEMON" placeholder="e.g. SECRET" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Playfair Controls -->
+                    <div id="tech-ctrl-playfair" class="tech-ctrl-panel" style="display:none;">
+                        <div class="control-row">
+                            <div class="input-field-group" style="flex:2;">
+                                <label class="input-label" for="playfair-key">Keyword (5x5 Grid Generator)</label>
+                                <input type="text" id="playfair-key" class="input-control" value="MONARCHY" placeholder="e.g. MONARCHY" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hill Controls -->
+                    <div id="tech-ctrl-hill" class="tech-ctrl-panel" style="display:none;">
+                        <div class="control-row" style="align-items:center;">
+                            <div class="input-field-group" style="flex:0 0 auto;">
+                                <label class="input-label">2x2 Key Matrix [[a, b], [c, d]]</label>
+                                <div class="matrix-inputs">
+                                    <input type="number" id="hill-m00" class="input-control" value="5" />
+                                    <input type="number" id="hill-m01" class="input-control" value="8" />
+                                    <input type="number" id="hill-m10" class="input-control" value="17" />
+                                    <input type="number" id="hill-m11" class="input-control" value="3" />
+                                </div>
+                            </div>
+                            <div id="hill-status-msg" style="font-size:0.85rem; font-family:var(--font-mono); color:var(--accent-emerald); flex:1;">
+                                ✓ Valid key matrix (determinant = 9, coprime to 26).
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Atbash Controls -->
+                    <div id="tech-ctrl-atbash" class="tech-ctrl-panel" style="display:none;">
+                        <div style="font-size:0.875rem; color:var(--text-muted);">
+                            Atbash is a keyless cipher mapping letters symmetrically (A ↔ Z, B ↔ Y).
+                        </div>
+                    </div>
+
+                    <!-- Rail Fence Controls -->
+                    <div id="tech-ctrl-railfence" class="tech-ctrl-panel" style="display:none;">
+                        <div class="control-row">
+                            <div class="input-field-group">
+                                <label class="input-label" for="railfence-rails">Number of Rails (Depth)</label>
+                                <input type="number" id="railfence-rails" class="input-control" value="3" min="2" max="10" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IO Textarea Grid -->
+                <div class="io-grid">
+                    <div class="io-card">
+                        <div class="io-card-head">
+                            <span id="workspace-input-label" class="io-card-title">Plaintext Input</span>
+                            <button id="btn-sample" class="btn btn-secondary" style="padding:0.25rem 0.6rem; font-size:0.775rem;">Load Sample</button>
+                        </div>
+                        <textarea id="workspace-input" class="text-area" placeholder="Type or paste input text here..."></textarea>
+                        <div class="io-card-foot">
+                            <span id="input-char-count">0 characters</span>
+                            <button id="btn-clear" class="btn btn-secondary" style="padding:0.2rem 0.5rem; font-size:0.75rem;">Clear</button>
+                        </div>
+                    </div>
+
+                    <div class="io-card">
+                        <div class="io-card-head">
+                            <span id="workspace-output-label" class="io-card-title">Ciphertext Result</span>
+                            <button id="btn-copy" class="btn btn-secondary" style="padding:0.25rem 0.6rem; font-size:0.775rem;">Copy Output</button>
+                        </div>
+                        <textarea id="workspace-output" class="text-area" readonly placeholder="Output will appear automatically..."></textarea>
+                        <div class="io-card-foot">
+                            <span id="output-char-count">0 characters</span>
+                            <span id="transform-status" style="color:var(--accent-emerald); font-weight:600;">Ready</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Step Visualizer -->
+                <div class="visualizer-box">
+                    <div class="visualizer-title">
+                        <span>🔍</span> Live Step Visualizer
+                    </div>
+                    <div id="visualizer-content">
+                        <!-- Step Visualizer Output Injected Here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SCREEN 3: Learning Hub with Chapters (#screen-learning)
+             =================================================================== -->
+        <div id="screen-learning" class="view-screen">
+            <div class="page-header">
+                <h2 class="page-title">Learning Hub</h2>
+                <p class="page-subtitle">Structured chapter breakdown of classical ciphers and Information Security fundamentals.</p>
+            </div>
+
+            <div class="learning-layout">
+                <!-- Chapters Sidebar -->
+                <aside class="learning-sidebar">
+                    <div class="chapter-progress-box">
+                        <div class="chapter-progress-lbl">
+                            <span>Course Progress</span>
+                            <span id="learning-progress-txt">0%</span>
+                        </div>
+                        <div class="quiz-progress-bar">
+                            <div id="learning-progress-fill" class="quiz-progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <ul class="chapter-list">
+                        <li><button class="chapter-item-btn active" data-ch="ch-1" onclick="app.loadChapter('ch-1')"><span>Ch 1: Caesar Cipher</span><span class="chapter-status-check">✓</span></button></li>
+                        <li><button class="chapter-item-btn" data-ch="ch-2" onclick="app.loadChapter('ch-2')"><span>Ch 2: Vigenère Cipher</span><span class="chapter-status-check"></span></button></li>
+                        <li><button class="chapter-item-btn" data-ch="ch-3" onclick="app.loadChapter('ch-3')"><span>Ch 3: Playfair Cipher</span><span class="chapter-status-check"></span></button></li>
+                        <li><button class="chapter-item-btn" data-ch="ch-4" onclick="app.loadChapter('ch-4')"><span>Ch 4: Hill Cipher (2x2)</span><span class="chapter-status-check"></span></button></li>
+                        <li><button class="chapter-item-btn" data-ch="ch-5" onclick="app.loadChapter('ch-5')"><span>Ch 5: Atbash Cipher</span><span class="chapter-status-check"></span></button></li>
+                        <li><button class="chapter-item-btn" data-ch="ch-6" onclick="app.loadChapter('ch-6')"><span>Ch 6: Rail Fence Cipher</span><span class="chapter-status-check"></span></button></li>
+                        <li><button class="chapter-item-btn" data-ch="ch-7" onclick="app.loadChapter('ch-7')"><span>Ch 7: CIA Triad & InfoSec</span><span class="chapter-status-check"></span></button></li>
+                        <li><button class="chapter-item-btn" data-ch="ch-8" onclick="app.loadChapter('ch-8')"><span>Ch 8: Modern vs Classical</span><span class="chapter-status-check"></span></button></li>
+                    </ul>
+                </aside>
+
+                <!-- Active Chapter Reading View -->
+                <div class="learning-content-card">
+                    <span id="ch-read-badge" class="chapter-badge">Chapter 1 of 8</span>
+                    <h2 id="ch-read-title" style="font-size:1.75rem; font-weight:800; color:var(--text-primary);">Caesar Cipher Fundamentals</h2>
+
+                    <div id="ch-read-body" class="chapter-content-body">
+                        <!-- Dynamic Lesson Material Injected Here -->
+                    </div>
+
+                    <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center;">
+                        <button id="btn-mark-complete" class="btn btn-outline" onclick="app.toggleChapterComplete()">Mark Chapter Complete</button>
+                        <button id="btn-next-chapter" class="btn btn-primary" onclick="app.nextChapter()">Next Chapter →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SCREEN 4: Assessments & Quizzes (#screen-assessments)
+             =================================================================== -->
+        <div id="screen-assessments" class="view-screen">
+            <div class="page-header">
+                <h2 class="page-title">Assessments & Quizzes</h2>
+                <p class="page-subtitle">Test your understanding of classical ciphers, key mechanics, and security principles.</p>
+            </div>
+
+            <!-- Quiz Component Card -->
+            <div class="quiz-container-card">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span id="quiz-question-number" style="font-weight:700; color:var(--primary-blue);">Question 1 of 8</span>
+                    <span id="quiz-score" style="font-weight:700; color:var(--accent-emerald);">Score: 0</span>
+                </div>
+
+                <div class="quiz-progress-bar">
+                    <div id="quiz-progress-fill" class="quiz-progress-fill"></div>
+                </div>
+
+                <div id="quiz-question-container">
+                    <h3 id="quiz-question" class="quiz-question-txt">Loading question...</h3>
+                    <div id="quiz-options" class="options-list"></div>
+                    <div id="quiz-explanation" class="explanation-box"></div>
+                    <button id="quiz-next-btn" class="btn btn-primary" style="display:none; width:100%;">Next Question</button>
+                </div>
+
+                <div id="quiz-result-container" style="display:none; text-align:center; padding:2rem 0;">
+                    <div style="font-size:3rem; margin-bottom:1rem;">🏆</div>
+                    <h3 style="font-size:1.5rem; font-weight:800; color:var(--text-primary); margin-bottom:0.5rem;">Assessment Completed!</h3>
+                    <p id="quiz-final-score" style="font-size:1.15rem; color:var(--primary-blue); margin-bottom:1.5rem;"></p>
+                    <button id="quiz-retry-btn" class="btn btn-primary">Retry Assessment</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SCREEN 5: Cipher Comparison Matrix (#screen-comparison)
+             =================================================================== -->
+        <div id="screen-comparison" class="view-screen">
+            <div class="page-header">
+                <h2 class="page-title">Cipher Comparison Matrix</h2>
+                <p class="page-subtitle">Technical breakdown of classical ciphers, parameters, complexity, and security ratings.</p>
+            </div>
+
+            <div class="table-responsive">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Cipher</th>
+                            <th>Type</th>
+                            <th>Key Parameter</th>
+                            <th>Complexity</th>
+                            <th>Security Rating</th>
+                            <th>Primary Vulnerability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight:700; color:var(--text-primary);">Caesar</td>
+                            <td>Substitution (Monoalphabetic)</td>
+                            <td>Shift (Integer 1-25)</td>
+                            <td>Low</td>
+                            <td><span class="badge badge-easy">Weak</span></td>
+                            <td>Brute-force (25 keys), Frequency Analysis</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:700; color:var(--text-primary);">Vigenère</td>
+                            <td>Substitution (Polyalphabetic)</td>
+                            <td>Keyword String</td>
+                            <td>Medium</td>
+                            <td><span class="badge badge-medium">Weak</span></td>
+                            <td>Kasiski Examination, Index of Coincidence</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:700; color:var(--text-primary);">Playfair</td>
+                            <td>Substitution (Digraph)</td>
+                            <td>5×5 Matrix Keyword</td>
+                            <td>Medium</td>
+                            <td><span class="badge badge-medium">Moderate</span></td>
+                            <td>Digraph Frequency Analysis, Known Plaintext</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:700; color:var(--text-primary);">Hill (2x2)</td>
+                            <td>Polygraphic (Linear Algebra)</td>
+                            <td>2×2 Invertible Matrix</td>
+                            <td>High</td>
+                            <td><span class="badge badge-hard">Moderate</span></td>
+                            <td>Known-Plaintext Linear Systems Attack</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:700; color:var(--text-primary);">Atbash</td>
+                            <td>Substitution (Reverse Map)</td>
+                            <td>None (Keyless)</td>
+                            <td>Low</td>
+                            <td><span class="badge badge-easy">Very Weak</span></td>
+                            <td>Zero secrecy key parameter</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:700; color:var(--text-primary);">Rail Fence</td>
+                            <td>Transposition (Zigzag)</td>
+                            <td>Number of Rails (Depth)</td>
+                            <td>Low</td>
+                            <td><span class="badge badge-easy">Weak</span></td>
+                            <td>Unchanged letter frequencies, Anagramming</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Cryptography & Information Security Laboratory. Educational Platform.</p>
+        </div>
+    </footer>
+
+    <!-- Cipher Engine Scripts -->
+    <script src="ciphers/caesar.js"></script>
+    <script src="ciphers/vigenere.js"></script>
+    <script src="ciphers/playfair.js"></script>
+    <script src="ciphers/hill.js"></script>
+    <script src="ciphers/atbash.js"></script>
+    <script src="ciphers/railfence.js"></script>
+    <!-- Main Application Router & Controller -->
+    <script src="app.js"></script>
+</body>
+
+</html>
