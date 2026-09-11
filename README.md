@@ -1,3 +1,4 @@
+![CryptoSec Logo](./crypto-sec.svg)
 # Cryptography & Information Security Lab 🛡️
 
 A modern, multi-screen, professional **Cryptography & Information Security Learning Platform**. Built as a single-page application (SPA), it features dedicated interactive workspaces for classical ciphers, step-by-step visualizers, an 8-chapter Learning Hub with **Student Memory Hacks & Exam Cheat Codes**, self-assessment quizzes, dual Light/Dark mode themes, and a clean, simplified educational interface.
